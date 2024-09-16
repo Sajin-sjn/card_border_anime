@@ -1,0 +1,45 @@
+
+.card-class {
+    position: relative;
+    height: 350px;
+    width: 380px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 5rem;
+    background-color: black;
+    overflow: hidden;
+}
+.card-animate {
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
+
+.card-class::before {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 180%;
+    background: red;
+    transform: rotate(45deg);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    animation: cardanimation 2s linear infinite;
+}
+.card-class::after {
+    position: absolute;
+    content: '';
+    inset: 3px;
+    background: black;
+}
+@keyframes cardanimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        /* filter: hue-rotate(-360deg) saturate(1000%); for different colors */
+    }
+}
+
